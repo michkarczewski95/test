@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
+import Validation from './Validation/Validation.js';
 
 class App extends Component {
   state= {
@@ -20,11 +21,15 @@ class App extends Component {
           <li>Render a list of CharComponents where each CharComponent receives a different letter of the entered text (in the initial input field) as a prop.</li>
           <li>When you click a CharComponent, it should be removed from the entered text.</li>
         </ol>
-        <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
+        <p>Hint: Keep in mind that JavaScript strin
+          gs are basically arrays!</p>
         <hr />
-        <input type="text"
+        <input
+         type="text"
          onChange={this.inputChangeHandler} 
          value={this.state.userInput} />
+         <p>{this.state.userInput} </p>
+         <Validation inputLenght={this.state.userInput.length} />
         </div>
   );
 }

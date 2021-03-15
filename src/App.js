@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
-import Validation from './Validation/Validation.js';
+import Validation from './Validation/Validation';
+import Char from './Char/Char';
 
 class App extends Component {
   state= {
@@ -11,6 +12,9 @@ class App extends Component {
     this.setState({userInput: event.target.value});
   }
   render () {
+    const charList = this.state.userInput.split('').map((char, index) =>{
+      return <Char character={char} key={index} />;
+    });
   return (
       <div className="App">
         <ol>
@@ -30,6 +34,7 @@ class App extends Component {
          value={this.state.userInput} />
          <p>{this.state.userInput} </p>
          <Validation inputLength={this.state.userInput.length} />
+         {charList}
         </div>
   );
 }
